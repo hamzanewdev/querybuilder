@@ -23,9 +23,20 @@ const styles = StyleSheet.create({
     width: '100%',
     borderWidth: 0.5,
     borderRadius: 7,
+    marginBottom: 5,
+    borderColor: 'gray',
   },
   pickerInside: {
-    fontSize: 10,
-    backgroundColor: 'red',
+    inputIOS: {
+      color: 'black',
+      marginVertical: -10,
+    },
+    placeholder: {
+      color: 'black',
+    },
+    inputAndroid: {
+      marginVertical: -10,
+      color: 'black',
+    },
   }
 });

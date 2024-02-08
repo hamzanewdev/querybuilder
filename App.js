@@ -12,6 +12,7 @@ import { Elementcheck } from './components/InputsElement';
 import { formatQuery } from 'react-querybuilder';
 import { SingleRule } from './components/RuleGroupElement';
 import { FidropdownElement } from './components/fidropdownElement';
+import { operatordropdownElement } from './components/operatordropdownElement';
 
 const fields = [
   { name: 'firstName', label: 'First Name' },
@@ -21,8 +22,8 @@ const fields = [
 const defaultQuery = {
   combinator: 'or',
   rules: [
-    { field: 'firstName', operator: 'beginsWith', value: 'Stev' },
-    { field: 'lastName', operator: 'in', value: 'Vai, Vaughan' },
+    { field: 'firstName', operator: '=', value: 'Stev' },
+    { field: 'lastName', operator: '=', value: 'Vai, Vaughan' },
   ],
 };
 
@@ -38,10 +39,16 @@ function App(){
             addRuleAction: AddRuleButtonElement,
             addGroupAction: AddGroupButtonElement,
             fieldSelector: FidropdownElement,
-            operatorSelector: Elementcheck,
+            operatorSelector: operatordropdownElement,
             valueEditor: Elementcheck,
             combinatorSelector: CombinatorsElement,
-            rule:  SingleRule,
+          }}
+          styles={{
+            rule: {flexDirection: 'column'},
+            ruleGroup: {
+              backgroundColor: '#F8F8F8',
+              paddingHorizontal: 10,
+            },
           }}
           query={query} 
           onQueryChange={q => setQuery(q)}

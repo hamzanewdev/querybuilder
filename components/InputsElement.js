@@ -21,11 +21,13 @@ export const Elementcheck  = ({
 
 const styles = StyleSheet.create({
     valueinput: {
-        borderWidth: 1,
-        borderColor: 'gray',
-        borderRadius: 5,
-        padding: 2,
-        width: '30%',
-        fontSize: 10,
+      borderWidth: 0.5,
+      borderColor: 'gray',
+      borderRadius: 7,
+      padding: 2,
+      width: '100%',
+      fontSize: 16,
+      marginBottom: 5,
+      paddingHorizontal: 15,
     },
 });

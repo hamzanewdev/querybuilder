@@ -1,8 +1,8 @@
 export const operatorsconst = [
-    { name: '=', label: 'Equals To' },
-    { name: '<', label: 'Less Than' },
-    { name: '>', label: 'Greater Than' },
-    { name: '>=', label: 'Greater Than And Equals To' },
+    { value: '=', label: 'Equals To' },
+    { value: '<', label: 'Less Than' },
+    { value: '>', label: 'Greater Than' },
+    { value: '>=', label: 'Greater Than And Equals To' },
 ];
 
 
