@@ -1,17 +1,17 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
 import {
+  ScrollView,
   StyleSheet,
+  Text,
 } from 'react-native';
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { QueryBuilderNative } from '@react-querybuilder/native';
-import { NativeActionElement } from './components/NativeActionElement';
+import { AddRuleButtonElement, AddGroupButtonElement } from './components/ButtonElement';
+import { CombinatorsElement } from './components/CombinatorsElement';
+import { Elementcheck } from './components/InputsElement';
+import { formatQuery } from 'react-querybuilder';
+import { SingleRule } from './components/RuleGroupElement';
+import { FidropdownElement } from './components/fidropdownElement';
 
 const fields = [
   { name: 'firstName', label: 'First Name' },
@@ -19,7 +19,7 @@ const fields = [
 ];
 
 const defaultQuery = {
-  combinator: 'and',
+  combinator: 'or',
   rules: [
     { field: 'firstName', operator: 'beginsWith', value: 'Stev' },
     { field: 'lastName', operator: 'in', value: 'Vai, Vaughan' },
@@ -31,10 +31,24 @@ function App(){
   
 
   return (
-    <QueryBuilderNative
-      controlElements={{ actionElement: NativeActionElement }}
-      //controlClassnames={{ addRule: styles.myRule }}
-    />
+    <>
+      <ScrollView>
+        <QueryBuilderNative
+          controlElements={{ 
+            addRuleAction: AddRuleButtonElement,
+            addGroupAction: AddGroupButtonElement,
+            fieldSelector: FidropdownElement,
+            operatorSelector: Elementcheck,
+            valueEditor: Elementcheck,
+            combinatorSelector: CombinatorsElement,
+            rule:  SingleRule,
+          }}
+          query={query} 
+          onQueryChange={q => setQuery(q)}
+        />
+        <Text>{formatQuery(query, 'sql')}</Text>
+      </ScrollView>
+    </>
   );
 }
 
